@@ -153,9 +153,9 @@ transition: opacity 0.2s ease, stroke-width 0.2s ease;
 }
 .connection-line.causal {
 stroke: var(--brand-blue);
-stroke-width: 2;
+stroke-width: 1.5;
 stroke-dasharray: 6 5;
-opacity: 0;
+opacity: 0.5;
 }
 .connection-line.dimmed-line {
 opacity: 0.08;
@@ -169,8 +169,8 @@ stroke: var(--blue-dark);
 stroke-width: 3;
 opacity: 1;
 }
-.connection-dot { fill: var(--light-blue); transition: opacity 0.2s ease, fill 0.2s ease, r 0.2s ease; opacity: 0; }
-.connection-dot.dimmed-line { opacity: 0; }
+.connection-dot { fill: var(--light-blue); transition: opacity 0.2s ease, fill 0.2s ease, r 0.2s ease; opacity: 0.5; }
+.connection-dot.dimmed-line { opacity: 0.05; }
 .connection-dot.highlight-line { fill: var(--blue-dark); r: 4; opacity: 1; }
 
 /* LEGEND */
@@ -264,6 +264,19 @@ margin-top: 8px;
 font-size: 11px;
 font-weight: 300;
 opacity: 0.85;
+}
+.node.trail.overview {
+width: 260px;
+min-height: 180px;
+padding: 24px 26px;
+justify-content: space-between;
+}
+.node.trail.overview h3 {
+font-size: 19px;
+}
+.node.trail.overview .count {
+font-size: 13px;
+margin-top: 16px;
 }
 
 /* PROJECT NODES */
@@ -578,7 +591,7 @@ text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2px;
 </div>
 <div class="legend-row">
 <svg width="36" height="10" viewBox="0 0 36 10"><line x1="2" y1="5" x2="34" y2="5" stroke="#0096FA" stroke-width="2" stroke-dasharray="6 5"/><circle cx="18" cy="5" r="2.5" fill="#0096FA"/></svg>
-<span>Linha tracejada azul — conexão entre projetos (aparece ao passar o mouse)</span>
+<span>Linha tracejada azul — conexão entre projetos (mais destacada ao passar o mouse)</span>
 </div>
 </div>
 
@@ -612,58 +625,75 @@ function getTrail(id) { return DATA.trails.find(t => t.id === id); }
 // (trilha em coluna à esquerda, projetos em grid à direita)
 // ============================================
 function computeLayout() {
-const projColWidth = 230;
-const projColGap = 30;
-const projRowHeight = 160;
-
 if (activeFilters.trail !== 'all') {
-// FOCUSED LAYOUT: single trail, projects in a wider grid
+// FOCUSED LAYOUT: trail in corner, projects scattered in a "cloud" to the right
 const trail = getTrail(activeFilters.trail);
-const projCols = 4;
 const trailX = 40;
-const projStartX = 320;
-
+const trailY = 60;
 trail.x = trailX;
-trail.y = 40;
+trail.y = trailY;
 
+const cloudCenterX = 620;
+const cloudCenterY = trailY + 140;
+const projW = 195, projH = 96;
+
+// pseudo-random but deterministic per project id, so layout is stable across re-renders
+function seedFor(id) {
+let h = 0;
+for (let i = 0; i < id.length; i++) h = (h * 31 + id.charCodeAt(i)) >>> 0;
+return h;
+}
+
+const n = trail.projects.length;
 trail.projects.forEach((pid, pi) => {
 const project = getProject(pid);
-const col = pi % projCols;
-const row = Math.floor(pi / projCols);
-project.x = projStartX + col * (projColWidth + projColGap);
-project.y = trail.y - 20 + row * projRowHeight;
+const seed = seedFor(pid);
+
+// distribute around a circle, with radius growing for outer "rings"
+const ring = Math.floor(pi / 6);
+const idxInRing = pi % 6;
+const ringCount = Math.min(6, n - ring * 6);
+const angle = (idxInRing / Math.max(1, ringCount)) * Math.PI * 2 + (ring * 0.5);
+const baseRadius = 280 + ring * 320;
+
+// jitter based on seed, deterministic
+const jitterX = ((seed % 100) / 100 - 0.5) * 140;
+const jitterY = (((seed >> 8) % 100) / 100 - 0.5) * 140;
+const radiusJitter = ((seed >> 16) % 100) / 100 * 80;
+
+const radius = baseRadius + radiusJitter;
+project.x = Math.max(280, cloudCenterX + Math.cos(angle) * radius * 1.3 + jitterX - projW / 2);
+project.y = Math.max(0, cloudCenterY + Math.sin(angle) * radius * 0.7 + jitterY - projH / 2);
 });
 
-const rows = Math.ceil(trail.projects.length / projCols);
-const totalHeight = trail.y + Math.max(420, rows * projRowHeight + 200);
-mapWrap.style.minHeight = totalHeight + 'px';
+// adjust map height/width based on the furthest project
+let maxY = trailY + 400;
+trail.projects.forEach(pid => {
+const project = getProject(pid);
+maxY = Math.max(maxY, project.y + projH + 120);
+});
+mapWrap.style.minHeight = maxY + 'px';
 return;
 }
 
-// DEFAULT LAYOUT: all trails stacked, each with its own project grid
-const trailX = 40;
-const trailGapY = 420;
-const projStartX = 320;
-const projCols = 3;
+// OVERVIEW LAYOUT: only trail cards, in a simple grid spread across the canvas
+const cardW = 260;
+const cardH = 180;
+const gapX = 40;
+const gapY = 40;
+const cols = 3;
+const startX = 40;
+const startY = 40;
 
 DATA.trails.forEach((trail, ti) => {
-trail.x = trailX;
-trail.y = 40 + ti * trailGapY;
-
-trail.projects.forEach((pid, pi) => {
-const project = getProject(pid);
-const col = pi % projCols;
-const row = Math.floor(pi / projCols);
-project.x = projStartX + col * (projColWidth + projColGap);
-project.y = trail.y - 20 + row * projRowHeight;
-});
+const col = ti % cols;
+const row = Math.floor(ti / cols);
+trail.x = startX + col * (cardW + gapX);
+trail.y = startY + row * (cardH + gapY);
 });
 
-// adjust map height based on content
-const maxTrailY = DATA.trails[DATA.trails.length - 1].y;
-const lastTrail = DATA.trails[DATA.trails.length - 1];
-const lastTrailRows = Math.ceil(lastTrail.projects.length / projCols);
-const totalHeight = maxTrailY + Math.max(420, lastTrailRows * projRowHeight + 200);
+const rows = Math.ceil(DATA.trails.length / cols);
+const totalHeight = startY + rows * (cardH + gapY) + 100;
 mapWrap.style.minHeight = totalHeight + 'px';
 }
 
@@ -715,6 +745,7 @@ if (activeFilters.trail !== 'all' && activeFilters.trail !== trail.id) return;
 
 const el = document.createElement('div');
 el.className = 'node trail';
+if (activeFilters.trail === 'all') el.classList.add('overview');
 el.style.left = trail.x + 'px';
 el.style.top = trail.y + 'px';
 el.tabIndex = 0;
@@ -730,12 +761,20 @@ el.innerHTML = `
 <h3>${trail.name}</h3>
 <div class="count">${trail.projects.length} projeto${trail.projects.length > 1 ? 's' : ''}</div>
 `;
+
+if (activeFilters.trail === 'all') {
+el.addEventListener('click', () => { activeFilters.trail = trail.id; render(); });
+el.addEventListener('keydown', e => { if (e.key === 'Enter') { activeFilters.trail = trail.id; render(); } });
+} else {
 el.addEventListener('click', () => openTrailModal(trail));
 el.addEventListener('keydown', e => { if (e.key === 'Enter') openTrailModal(trail); });
+}
 el.addEventListener('mouseenter', () => highlightConnections(el.dataset.connKey));
 el.addEventListener('mouseleave', () => clearHighlight());
 mapWrap.appendChild(el);
 });
+
+if (activeFilters.trail === 'all') { drawConnections(); return; }
 
 DATA.projects.forEach(project => {
 if (activeFilters.trail !== 'all' && project.trailId !== activeFilters.trail) return;
@@ -1042,6 +1081,7 @@ buildFilters();
 computeLayout();
 renderMap();
 renderMobile();
+document.getElementById('mapLegend').style.display = activeFilters.trail === 'all' ? 'none' : '';
 }
 
 async function init() {
@@ -1066,7 +1106,6 @@ Responsável: <strong>${DATA.meta?.author || ''}</strong><br>
 computeLayout();
 loadingMsg.style.display = 'none';
 mapWrap.style.display = '';
-document.getElementById('mapLegend').style.display = '';
 
 render();
 window.addEventListener('resize', drawConnections);

@@ -1,0 +1,760 @@
+{
+  "meta": {
+    "title": "Portal de Impacto",
+    "subtitle": "Revenue Enablement · Blip",
+    "author": "Victoria Jurquet",
+    "lastUpdate": "12/06/2026"
+  },
+  "trails": [
+    {
+      "id": "t1",
+      "name": "Jornada do Cliente & Documentação",
+      "projects": ["proj_jornada", "proj_sap", "proj_onboarding", "proj_academy"]
+    },
+    {
+      "id": "t2",
+      "name": "Análise de Vendas & Inteligência de Operação",
+      "projects": ["proj_analise_vendas", "proj_apoio_vendas", "proj_qualificacao"]
+    },
+    {
+      "id": "t3",
+      "name": "Sales Messaging & Metodologia",
+      "projects": ["proj_outcomes", "proj_pitch_qualificacao", "proj_g4"]
+    },
+    {
+      "id": "t4",
+      "name": "Capacitação Blip 2.0",
+      "projects": ["proj_capacitacao20", "proj_treino_mkt_revops", "proj_certif_comparaveis", "proj_evento_parceiros"]
+    },
+    {
+      "id": "t5",
+      "name": "Product Knowledge",
+      "projects": ["proj_treino_mkt_sync", "proj_pitch_mkt", "proj_certif_mkt", "proj_pitch_studio", "proj_mockups_wpp", "proj_jornadas_wpp", "proj_faq_studio", "proj_estrategia_cred", "proj_capacitacao_cred", "proj_certif_cred", "proj_whatsapp_api"]
+    },
+    {
+      "id": "t6",
+      "name": "Ações e Dinâmicas Recorrentes",
+      "projects": ["proj_historias_sucesso", "proj_apoio_vendas_calls"]
+    }
+  ],
+  "projects": [
+    {
+      "id": "proj_jornada",
+      "trailId": "t1",
+      "name": "Jornada do Cliente — SMB/MAcc/StAcc",
+      "status": "progress",
+      "statusLabel": "Em andamento",
+      "period": "Q2",
+      "tags": [],
+      "publico": "Todo time Client Facing",
+      "contexto": "Durante muito tempo cada time da Blip organizou suas documentações e processos em documentos separados. Esse processo fragmentado trouxe várias gray áreas na operação, tornando o processo de melhoria contínua e avaliação mais moroso.",
+      "objetivo": "Criar uma central única para o time, como referência para outras áreas, estabelecendo aprendizado contínuo entre BUs e reduzindo a fricção do time Client Facing.",
+      "stats": [
+        { "num": "—", "label": "Documentação completa de Client Facing" },
+        { "num": "—", "label": "Centralização do conhecimento" },
+        { "num": "—", "label": "Democratização da informação para outras áreas Blip" }
+      ],
+      "links": ["vicjurquet.github.io/blip-jornada/ (senha: enablementblip*)"],
+      "tools": ["Gemini", "Claude", "GitHub"],
+      "relatedTo": [
+        { "id": "proj_sap", "reason": "Documentação SAP centralizada dentro da mesma jornada" },
+        { "id": "proj_academy", "reason": "Guia Academy segue a mesma lógica de central única" }
+      ],
+      "timeline": [
+        { "date": "Fev 2026", "text": "Publicação inicial no GitHub Pages." },
+        { "date": "Mai 2026", "text": "Adicionada seção de Implementation com pipeline de etapas e drawer lateral." },
+        { "date": "Doing", "text": "SMB e MAcc com próximos passos em definição. StAcc: processo de Land com Qualificação concluída e Aquisição em andamento — validação da diretoria em 22/06. Processos de Implementação, Adoção e Expansão como metas (🎯)." }
+      ]
+    },
+    {
+      "id": "proj_sap",
+      "trailId": "t1",
+      "name": "Documentação SAP",
+      "status": "live",
+      "statusLabel": "Done",
+      "period": "Q2",
+      "tags": [],
+      "publico": "Todo time Client Facing",
+      "contexto": "O time de Client Facing apresentou diversos erros no preenchimento do HubSpot, prejudicando o faturamento de maio. Todas as documentações criadas por Enablement e RevOps foram reunidas em uma central única.",
+      "objetivo": "Tornar a documentação do SAP mais acionável e fácil de navegar, reduzindo a taxa de erro no preenchimento.",
+      "stats": [
+        { "num": "x%", "label": "menos erros" },
+        { "num": "x%", "label": "menos dúvidas" },
+        { "num": "4h", "label": "de treinamento extra SAP" }
+      ],
+      "links": ["Site da Documentação"],
+      "tools": ["Claude", "GitHub", "Google Sites"],
+      "relatedTo": [
+        { "id": "proj_jornada", "reason": "Parte da central de documentação da Jornada do Cliente" }
+      ],
+      "timeline": [
+        { "date": "18 Mai 2026", "text": "Início do projeto." },
+        { "date": "18 Mai 2026", "text": "Ponto importante: o processo do SAP ainda está em desenvolvimento pelo RevOps, com risco de a documentação ficar obsoleta. Solução: estrutura no Claude para atualização por comando conversacional, que atualiza automaticamente o JSON da documentação." }
+      ]
+    },
+    {
+      "id": "proj_onboarding",
+      "trailId": "t1",
+      "name": "Apoios em Onboarding",
+      "status": "progress",
+      "statusLabel": "Em andamento",
+      "period": "Q2",
+      "tags": [],
+      "publico": "CSM MAcc, AM SMB, Legal",
+      "contexto": "O time de enablement precisou assumir algumas agendas de onboarding porque o headcount responsável por essa ação estava de férias e depois atestado.",
+      "objetivo": "Calibrar o conhecimento da operação.",
+      "stats": [
+        { "num": "7h", "label": "treinamento (Treinamento de CSM MAcc e AM SMB focado em produto)" },
+        { "num": "—", "label": "Treinamento de Legal focado em Precificação" }
+      ],
+      "links": [],
+      "tools": [],
+      "relatedTo": [],
+      "timeline": [
+        { "date": "Mai 2026", "text": "Início do projeto, período Q2." }
+      ]
+    },
+    {
+      "id": "proj_academy",
+      "trailId": "t1",
+      "name": "Guia Academy Blip (LMS)",
+      "status": "progress",
+      "statusLabel": "Em andamento",
+      "period": "Q1",
+      "tags": [],
+      "publico": "Time de Enablement / criadores de conteúdo na Academy",
+      "contexto": "Necessidade de padronizar a criação de cursos e programas na Blip Academy, com convenções de nomenclatura e fluxo de revisão consistentes.",
+      "objetivo": "Documentar o processo completo de criação de curso (nomenclatura, objetos de conteúdo, avaliação, formulário de feedback, revisão) e de programa (página principal, sequência de cursos).",
+      "stats": [
+        { "num": "v1.0", "label": "Guia_Academy_Blip.docx publicado" }
+      ],
+      "links": ["Guia_Academy_Blip.docx (v1.0)"],
+      "tools": [],
+      "relatedTo": [
+        { "id": "proj_jornada", "reason": "Faz parte do esforço de centralização de documentação" }
+      ],
+      "timeline": [
+        { "date": "v1.0", "text": "Publicada com seção de criação de curso: nomenclatura [PT] Tema para Público X, content objects, assessment, feedback form, revisão com Felipe Rodrigues/Lalá." },
+        { "date": "Em aberto", "text": "Seções de permissões e publicação de programa pendentes." }
+      ]
+    },
+    {
+      "id": "proj_analise_vendas",
+      "trailId": "t2",
+      "name": "Análise de Vendas — Inteligência de Operação",
+      "status": "progress",
+      "statusLabel": "Em andamento",
+      "period": "Anual",
+      "tags": ["Blip 2.0"],
+      "publico": "Coordenações e Gerências de Land SMB, MACC, Expand SMB e MACC",
+      "contexto": "Com a transição para o Blip 2.0 como principal movimento estratégico de 2026, o time de enablement precisava sair do teórico e ter proximidade real com a operação — entendendo como as vendas estão acontecendo na prática para agir com mais precisão e impacto.",
+      "objetivo": "Criar um sistema recorrente de inteligência de vendas que gere insights acionáveis para o enablement e para as lideranças, alimentando capacitações mais assertivas, decisões mais embasadas e uma operação mais alinhada com a realidade do campo.",
+      "stats": [
+        { "num": "30%", "label": "Conversão Whales (KR alvo)" },
+        { "num": "2", "label": "Relatórios entregues às lideranças diretas" },
+        { "num": "57", "label": "calls assistidas até o momento" },
+        { "num": "2", "label": "to-dos de enablement gerados a partir de cada análise" }
+      ],
+      "links": ["Análise de Vendas - Dez/25", "Análise de Vendas - Jan/26", "Sales Lab"],
+      "tools": ["Claude", "Gemini"],
+      "relatedTo": [
+        { "id": "proj_whatsapp_api", "reason": "Insight Q1: +80% das vendas fechadas em janeiro ligadas a problemas na saúde do WhatsApp — gerou o treinamento com a Meta" },
+        { "id": "proj_pitch_studio", "reason": "Insight Q2: lacuna no discurso sobre Blip 2.0/IA — gerou o Pitch Studio e a certificação Blip 2.0" },
+        { "id": "proj_apoio_vendas_calls", "reason": "Apoio em vendas / participação em calls alimenta a mesma inteligência" }
+      ],
+      "timeline": [
+        { "date": "Jan 2026", "text": "Projeto iniciado apenas com LAND SMB, realizado apenas por Victoria." },
+        { "date": "Mar 2026", "text": "Estendido para todas as BUs; todos os enablers começaram a contribuir." },
+        { "date": "Insight Q1", "text": "Identificado: mais de 80% das vendas fechadas em janeiro ligadas a clientes com problemas na saúde do número de WhatsApp — gap crítico de conhecimento. Ação: treinamento estruturado com a Meta sobre reclassificação e boas práticas da API. Resultado: fortalecimento do discurso de vendas em Land e Expand + reforço de capacitação interna no CSM pelas coordenações." },
+        { "date": "Insight Q2", "text": "Identificado: lacuna no discurso do time sobre Blip 2.0 e uso de IA em alguns casos de uso. Ação: elaboração do pitch comercial do Studio e criação da certificação Blip 2.0. Resultado: pitch de Studio concluído e apresentado para LAND e Expand; programa do Blip 2.0 adicionado ao Academy." },
+        { "date": "Q3 / Q4", "text": "Próximos passos a definir." }
+      ]
+    },
+    {
+      "id": "proj_apoio_vendas",
+      "trailId": "t2",
+      "name": "Processo de Qualificação: Deal → Contato",
+      "status": "live",
+      "statusLabel": "Done",
+      "period": "Q1",
+      "tags": ["Blip 2.0"],
+      "publico": "Time de Qualificação MACC Land e Expand",
+      "contexto": "O time de qualificação usava o objeto 'Negócio' no HubSpot para registrar prospecções — objeto que não foi criado para esse fim. Isso gerava distorções na visualização do pipeline, impedindo enxergar oportunidades por área dentro de cada empresa prospectada.",
+      "objetivo": "Migrar o processo de qualificação para o objeto Contato, garantindo visibilidade real de oportunidades por área, dados mais precisos no pipeline e um processo de qualificação mais intencional e escalável.",
+      "stats": [
+        { "num": "30%", "label": "Conversão Whales (KR alvo)" },
+        { "num": "—", "label": "Mapeamento completo de campos: de-para de Negócio para Prospecto" },
+        { "num": "2", "label": "sessões de capacitação realizadas" },
+        { "num": "100%", "label": "Adoção pelo time MACC sem resistência" }
+      ],
+      "links": ["[Land Macc] PLAYBOOK Revenue", "[Overview] Ferramenta Contatos/Prospects - Recording", "[Go Live] Ferramenta de Leads Hubspot - Recording"],
+      "tools": ["Gemini"],
+      "relatedTo": [],
+      "timeline": [
+        { "date": "Jan 2026", "text": "Desenho do projeto: revisitação dos campos e regras existentes em 'deal', proposta de de-para para 'contato'. RevOps propôs que o time BR seguisse as mesmas etapas do time Global. Aprovação com as gerências." },
+        { "date": "Capacitação", "text": "Agenda dividida em dois momentos: introdutória (com gerência de SMB já envolvida, visando próxima adoção) e Go Live da ferramenta." },
+        { "date": "Documentação", "text": "Processo registrado no Playbook MACC Land com texto, prints e vídeo. Expansão para o time SMB — ownership transferido para Gabriella Rosa (Processos)." }
+      ]
+    },
+    {
+      "id": "proj_qualificacao",
+      "trailId": "t2",
+      "name": "Apoio em Vendas — Participação em Calls",
+      "status": "progress",
+      "statusLabel": "Em andamento — recorrente",
+      "period": "Anual",
+      "tags": [],
+      "publico": "LAND SMB, LAND MACC, LAND STACC, EXPAND SMB, EXPAND MACC, EXPAND STACC",
+      "contexto": "Com acionamento do time de vendas, enablement participa da call de vendas com o vendedor a fim de contribuir com a abordagem e aumentar a qualidade da call.",
+      "objetivo": "Apoiar deals estratégicos (Whales/Sharks) em tempo real, conectando o aprendizado direto da call à inteligência de vendas e aos próximos materiais de enablement.",
+      "stats": [
+        { "num": "20%", "label": "Conversão calls (Q1)" },
+        { "num": "20%", "label": "Crescimento em SMB (Objetivo Geral)" },
+        { "num": "30% - 2026", "label": "Taxa de conversão Whales (Objetivo Macro)" }
+      ],
+      "links": [],
+      "tools": [],
+      "relatedTo": [
+        { "id": "proj_analise_vendas", "reason": "Alimenta o sistema de inteligência de vendas" }
+      ],
+      "timeline": [
+        { "date": "Q1", "text": "Deals acompanhados: Emive (Mid, quase fechado ✅), G7 Assessoria (Mid, Poor Fit ❌), Open English (Whales, em andamento ⌛), Sumerbol (Sharks, em andamento ⌛), Coca-Cola Brasil (Whales, em andamento ⌛)." }
+      ]
+    },
+    {
+      "id": "proj_outcomes",
+      "trailId": "t3",
+      "name": "Benefícios do Plano Outcomes",
+      "status": "live",
+      "statusLabel": "Done",
+      "period": "Q1",
+      "tags": ["Blip 2.0", "Usado em Capacitação 2.0"],
+      "publico": "Todo time Client Facing",
+      "contexto": "As gerências de Land e MACC identificaram baixa clareza do time sobre os benefícios do Plano Outcome — confirmado pelas análises de calls: havia resistência em oferecer o plano por ser financeiramente mais alto e ter métricas pouco conhecidas pelo mercado, mesmo entregando mais valor ao cliente. Como o Plano Outcome é a porta de entrada direta para o Blip 2.0, essa lacuna colocava em risco a principal meta comercial de 2026.",
+      "objetivo": "Eliminar as zonas cinzentas sobre o Plano Outcome, equipando o time com discurso claro e confiante que conecte o valor do plano à realidade do negócio do cliente, desbloqueando vendas estratégicas e acelerando a adoção do Blip 2.0.",
+      "stats": [
+        { "num": "30%", "label": "Conversão Whales (KR alvo)" },
+        { "num": "—", "label": "Material PPT com benefícios do Plano Outcome" },
+        { "num": "—", "label": "Vídeo explicativo para consumo assíncrono" },
+        { "num": "x", "label": "de alcance após divulgação" }
+      ],
+      "links": ["Benefícios Outcome (ppt)", "Benefícios_Outcome.mp4 (vídeo)"],
+      "tools": ["Claude"],
+      "relatedTo": [
+        { "id": "proj_capacitacao20", "reason": "Conteúdo integrado ao Programa de Capacitação Blip 2.0, garantindo consistência no discurso ao longo de 2026" }
+      ],
+      "timeline": [
+        { "date": "Mar 2026", "text": "Projeto criado após feedback da gerência de MAcc combinado com insights das análises de call que confirmaram a resistência do time." },
+        { "date": "Construção", "text": "Material desenvolvido em colaboração com PMM, PMI, gerências de Land e Expand e time de Produto, garantindo alinhamento técnico, comercial e de posicionamento." },
+        { "date": "Integração", "text": "Material não é entrega isolada — alimenta diretamente o Programa de Capacitação Blip 2.0, potencializando o impacto de ambos os projetos." }
+      ]
+    },
+    {
+      "id": "proj_pitch_qualificacao",
+      "trailId": "t3",
+      "name": "Guia para Pitch de Qualificação Blip 2.0",
+      "status": "live",
+      "statusLabel": "Done",
+      "period": "Q2",
+      "tags": ["Blip 2.0", "Usado no onboarding"],
+      "publico": "Land SMB e Land MAcc",
+      "contexto": "Com a transição para o Blip 2.0 como principal meta comercial de 2026, o time de qualificação precisava remodelar seu pitch, garantindo que o discurso chegasse ao lead já alinhado com a nova solução. Sem esse alinhamento, o funil começa comprometido e a conversão sofre em todas as etapas seguintes.",
+      "objetivo": "Padronizar e fortalecer o pitch de qualificação com foco no Blip 2.0, entregando ao time um guia prático e estruturado para conduzir calls com clareza, consistência e alinhamento estratégico.",
+      "stats": [
+        { "num": "20%", "label": "Crescimento SMB (KR alvo)" },
+        { "num": "30%", "label": "Taxa de conversão Whales (KR alvo)" },
+        { "num": "2h", "label": "de treinamento entregues" },
+        { "num": "—", "label": "Material institucional de qualificação + Passo a passo da call de Engajamento" }
+      ],
+      "links": ["Mural com o Processo de Engajamento", "Material Institucional Blip - Qualificação", "Gravação do Pitch"],
+      "tools": ["Claude"],
+      "relatedTo": [
+        { "id": "proj_analise_vendas", "reason": "Projeto criado após a análise das calls de vendas" }
+      ],
+      "timeline": [
+        { "date": "06 Abr 2026", "text": "Início do projeto, período Q2." },
+        { "date": "Diagnóstico", "text": "O time de qualificação conduzia contatos via meets sem pitch estruturado para o Blip 2.0 — discurso desatualizado, gerando inconsistência na entrada do funil. Identificado pelas análises de call e pela coordenação da área." },
+        { "date": "Construção", "text": "Guia desenvolvido com a coordenação de qualificação; passo a passo ideal mapeado no Mural; material institucional validado por headcount da área antes de ir para o time." },
+        { "date": "Ativação", "text": "Treinamento realizado com Land SMB e Land MACC para apresentação e adoção do guia." }
+      ]
+    },
+    {
+      "id": "proj_g4",
+      "trailId": "t3",
+      "name": "Projeto com a G4",
+      "status": "progress",
+      "statusLabel": "Em andamento",
+      "period": "Q1",
+      "tags": [],
+      "publico": "Land SMB e Parceiros",
+      "contexto": "Após a parceria da Blip com a G4, alguns pontos precisam passar por revisão para que o projeto tenha sucesso.",
+      "objetivo": "Trazer a G4 como geração de demanda e receita direta para o ecossistema Blip.",
+      "stats": [
+        { "num": "20%", "label": "Crescimento em SMB (KR alvo)" },
+        { "num": "3", "label": "materiais entregues" },
+        { "num": "5", "label": "novos contratos para Land" },
+        { "num": "R$x", "label": "New MRR em Land SMB" }
+      ],
+      "links": ["[DECK] Estratégia Blip", "[CAPACITAÇÃO] Universo Blip"],
+      "tools": ["Claude", "Gemini"],
+      "relatedTo": [],
+      "timeline": [
+        { "date": "To-dos macro", "text": "Conteúdo Site G4 ✅ · Deck Estratégia Blip (pendente) · Treinamento Blip ✅ · Criação da oferta ✅ · Criação de repositório para G4 ✅." },
+        { "date": "Oferta exclusiva", "text": "Financeira: R$15k de budget para Ativação Premium. Atendimento: workshop para construção a quatro mãos conduzido pelo Inside Sales." }
+      ]
+    },
+    {
+      "id": "proj_capacitacao20",
+      "trailId": "t4",
+      "name": "Programa de Capacitação Blip 2.0",
+      "status": "progress",
+      "statusLabel": "Em andamento",
+      "period": "Q2",
+      "tags": ["Blip 2.0"],
+      "publico": "Times prioritários: Expand MACC e Expand STACC. Demais times: certificação via Blip Academy.",
+      "contexto": "A meta de 2026 é migrar a base de clientes do Blip 1.0 para o Blip 2.0 e garantir que todo novo cliente já entre direto na solução 2.0. RevOps mapeia, BDR prospecta e vendedor converte — mas alocar o pré-sales na lista sem preparar o vendedor é desperdiçar o esforço. A migração para o Blip 2.0 é uma venda de mudança: o cliente vai questionar, comparar e hesitar.",
+      "objetivo": "Garantir que os times que geram a maior receita da Blip cheguem ao cliente com clareza, confiança e discurso alinhado, eliminando zonas cinzentas sobre o Blip 2.0 e desbloqueando a conversão da meta de migração.",
+      "stats": [
+        { "num": "4h", "label": "sessões síncronas com mão na massa, por time" },
+        { "num": "+20", "label": "conteúdos criados e entregues via Academy" },
+        { "num": "3", "label": "certificações via Blip Academy (Studio, MKT e Blip 2.0)" },
+        { "num": "4", "label": "dinâmicas práticas" },
+        { "num": "—", "label": "Relatório consolidado de gaps por time/diretoria ao final" },
+        { "num": "x", "label": "Blippers certificados" }
+      ],
+      "links": ["Programa de Capacitação Blip 2.0", "Conteúdos - Programa de Capacitação Blip 2.0", "[Draft] Capacitação 2.0"],
+      "tools": ["NBS", "Blip DORA", "Claude", "Gemini", "ChatGPT", "Blip Academy"],
+      "relatedTo": [
+        { "id": "proj_analise_vendas", "reason": "Projeto criado após a análise das calls de vendas" },
+        { "id": "proj_outcomes", "reason": "Benefícios do Plano Outcomes alimentam diretamente este programa" },
+        { "id": "proj_pitch_studio", "reason": "Pitch Studio é material utilizado neste programa" }
+      ],
+      "timeline": [
+        { "date": "Abr 2026", "text": "Início do projeto." },
+        { "date": "1ª Onda", "text": "Lançado para Expand MAcc com agendas síncronas." },
+        { "date": "2ª Onda", "text": "Lançado para StAcc com agendas presenciais em São Paulo." },
+        { "date": "3ª Onda", "text": "Lançado para todos os times com agendas síncronas: CSM MAcc, SMB, Times Operacionais + PS." },
+        { "date": "Estrutura", "text": "4 módulos em 4 semanas, baseado no modelo de aprendizagem de David Kolb (vídeos para ouvir, pílulas para ler, desafios práticos): Semana 1 - Visão Estratégica (DNA, value proposition, posicionamento); Semana 2 - Ecossistema de Produtos (funcionalidades, use cases, roadmap); Semana 3 - Go-to-Market (ICP, pitch, assets por segmento, quebra de objeções); Semana 4 - Modelo de Negócio (planos, modelo Outcome, simulações, fechamento)." },
+        { "date": "Acompanhamento", "text": "Durante: participação nas síncronas monitorada, consumo de pílulas via Slack, checkpoints semanais com líderes. Ao final: certificação na Blip Academy, score individual e relatório consolidado de gaps entregue à diretoria." },
+        { "date": "Origem", "text": "Desenho baseado no Guia-Programas de Revenue Enablement.docx; primeiro programa alinhado com a Estratégia de Ecosystem (Alinhamento Estratégico - Blip 2.0). Orquestrado com Product Marketing, Value Design, Deal Desk; materiais de Customer Growth, Market Intelligence, Product Marketing e Marketing foram essenciais." },
+        { "date": "Próximos passos", "text": "Criação da agenda Histórias de Sucesso para MAcc; material de Metodologia da proposta; material de Jornadas de Sucesso." }
+      ]
+    },
+    {
+      "id": "proj_treino_mkt_revops",
+      "trailId": "t4",
+      "name": "Treinamento do Blip 2.0 para Marketing e RevOps",
+      "status": "live",
+      "statusLabel": "Done",
+      "period": "Q2",
+      "tags": ["Blip 2.0"],
+      "publico": "Todo time de Marketing e RevOps",
+      "contexto": "Os times de Marketing são responsáveis por parte importante da jornada do cliente com a Blip — crucial entenderem com clareza a oferta do Blip 2.0. RevOps foi incluído para que a estratégia do 2.0 fique clara para quem constrói e aprimora as principais ferramentas de vendas.",
+      "objetivo": "Eliminar os silos em relação ao 2.0 com as áreas cross, aumentando a intencionalidade dos times em relação ao 2.0 e entregando as ferramentas necessárias para contribuírem ativamente com os principais KRs de 2026.",
+      "stats": [
+        { "num": "30%", "label": "Conversão Whales (KR alvo)" },
+        { "num": "—", "label": "Material PPT do treinamento" },
+        { "num": "100%", "label": "do time de MKT e RevOps alinhado com o 2.0" }
+      ],
+      "links": ["Treinamento Marketing e RevOps: Blip 2.0 (ppt)"],
+      "tools": ["Claude"],
+      "relatedTo": [],
+      "timeline": [
+        { "date": "Abr 2026", "text": "Agenda conduzida pelo time de Enablement junto com o time de PMM." }
+      ]
+    },
+    {
+      "id": "proj_certif_comparaveis",
+      "trailId": "t4",
+      "name": "Certificação Comparáveis Blip",
+      "status": "progress",
+      "statusLabel": "Em andamento",
+      "period": "Q2",
+      "tags": ["Usado no onboarding"],
+      "publico": "Blippers e Parceiros",
+      "contexto": "Comparáveis é um dos principais motivos de perda na BU — o time precisa de repertório competitivo atualizado para lidar com objeções com segurança.",
+      "objetivo": "Certificar Blippers e parceiros no posicionamento competitivo do produto, reduzindo perdas por comparáveis e fortalecendo a argumentação comercial.",
+      "stats": [
+        { "num": "30%", "label": "Taxa de conversão Whales (KR alvo)" },
+        { "num": "—", "label": "Curso de Certificação no Academy" },
+        { "num": "x", "label": "participações (a preencher conforme adesão das próximas ondas)" }
+      ],
+      "links": ["[Draft] Análise de Comparáveis - PT BR"],
+      "tools": ["Claude", "Blip Academy"],
+      "relatedTo": [],
+      "timeline": [
+        { "date": "06 Mai 2026", "text": "Início do projeto, período Q2." },
+        { "date": "Desafio", "text": "Mercado em constante movimento — curso corre risco de precisar de atualização constante. Solução: adotar o conceito de programa para esta iniciativa, permitindo evolução contínua da visão de comparáveis." }
+      ]
+    },
+    {
+      "id": "proj_evento_parceiros",
+      "trailId": "t4",
+      "name": "Participação no Evento Imersão — Blip Sales Specialist",
+      "status": "live",
+      "statusLabel": "Done",
+      "period": "Q2",
+      "tags": [],
+      "publico": "Parceiros",
+      "contexto": "O time de Parcerias criou um evento de dois dias com o ecossistema de parceiros focado em capacitação de vendas e Blip.",
+      "objetivo": "Capacitar os parceiros sobre o Blip 2.0, com conteúdo exclusivo focado em compartilhar o storytelling 2.0.",
+      "stats": [
+        { "num": "80", "label": "participações" },
+        { "num": "86", "label": "NPS da participação" },
+        { "num": "x", "label": "Novos contratos no Blip 2.0" }
+      ],
+      "links": ["Evento"],
+      "tools": ["Claude"],
+      "relatedTo": [],
+      "timeline": [
+        { "date": "19 Mai 2026", "text": "Participação no evento como palestrante." }
+      ]
+    },
+    {
+      "id": "proj_treino_mkt_sync",
+      "trailId": "t5",
+      "name": "Orquestração: Treinamento Síncrono do Blip Marketing",
+      "status": "live",
+      "statusLabel": "Done",
+      "period": "Q1",
+      "tags": ["Blip 2.0"],
+      "publico": "Land SMB, Land MACC, Land STACC, Expand SMB, Expand MACC, Expand STACC",
+      "contexto": "Com o Blip 2.0 como principal movimento estratégico de 2026, o time client facing precisava dominar o Blip Marketing — produto central da nova oferta. O enablement orquestrou o treinamento conduzido pelo PMM, garantindo conteúdo rico e acionável.",
+      "objetivo": "Nivelar o conhecimento do time sobre o Blip Marketing, acelerando a adoção do plano Outcome e impulsionando a migração do Blip 1.0 para o 2.0.",
+      "stats": [
+        { "num": "2.0", "label": "Migração da base (KR alvo)" },
+        { "num": "3", "label": "materiais" },
+        { "num": "3h", "label": "de treinamento (60% presença no 1º, 45% no 2º)" },
+        { "num": "6%", "label": "de respostas no formulário de feedback" }
+      ],
+      "links": ["Gravação Treinamento 1", "Gravação Treinamento 2", "PPT treinamento"],
+      "tools": [],
+      "relatedTo": [
+        { "id": "proj_pitch_mkt", "reason": "Feedback deste treinamento revelou necessidade de um pitch mais conectado ao dia a dia" }
+      ],
+      "timeline": [
+        { "date": "21 Jan 2026", "text": "Início do projeto, período Q1." },
+        { "date": "Desafio", "text": "Agendas longas e espaçadas (2 meses entre encontros) resultaram em baixa absorção e engajamento. Insight: 6% de respostas no formulário sinalizou gap de absorção do conteúdo. Aprendizado incorporado nos projetos seguintes: conteúdo mais curto, mais frequente e mais próximo do dia a dia do vendedor." }
+      ]
+    },
+    {
+      "id": "proj_pitch_mkt",
+      "trailId": "t5",
+      "name": "Pitch Marketing Solutions",
+      "status": "live",
+      "statusLabel": "Done",
+      "period": "Q1",
+      "tags": [],
+      "publico": "Land SMB, Land MACC, Land STACC, Expand SMB, Expand MACC, Expand STACC",
+      "contexto": "O feedback do treinamento síncrono revelou que o time precisava de algo mais conectado ao dia a dia da venda — um material introdutório que colocasse o cliente no centro da narrativa antes de um papo técnico.",
+      "objetivo": "Desburocratizar o conteúdo do Blip Marketing e criar um pitch base com linguagem compatível com o time client facing, acelerando a adoção do plano Outcome e a migração do Blip 1.0 para o 2.0.",
+      "stats": [
+        { "num": "20%", "label": "Crescimento SMB (KR alvo)" },
+        { "num": "—", "label": "Material PPT" },
+        { "num": "3h", "label": "de treinamento entregues" }
+      ],
+      "links": ["MATERIAL (pitch customizado pelo time de Marketing)"],
+      "tools": ["Gemini"],
+      "relatedTo": [
+        { "id": "proj_treino_mkt_sync", "reason": "Criado após o feedback do treinamento síncrono de PMM" },
+        { "id": "proj_certif_mkt", "reason": "Deu origem à trilha de Certificação do Blip Marketing" }
+      ],
+      "timeline": [
+        { "date": "Período Q1", "text": "Material de pitch produzido em colaboração com PMM, com layout customizado pelo time de Marketing. Conteúdo com discurso de negócio centrado no cliente, pronto para uso antes do papo técnico." }
+      ]
+    },
+    {
+      "id": "proj_certif_mkt",
+      "trailId": "t5",
+      "name": "Certificação do Blip Marketing",
+      "status": "live",
+      "statusLabel": "Done",
+      "period": "Q1",
+      "tags": [],
+      "publico": "Land SMB, Land MACC, Land STACC, Expand SMB, Expand MACC, Expand STACC",
+      "contexto": "Com o treinamento síncrono e o pitch introdutório entregues, o próximo passo era escalar o conhecimento do Blip Marketing para todos os times de forma estruturada, mensurável e com certificação.",
+      "objetivo": "Criar uma trilha de treinamento na Blip Academy com conteúdos dinâmicos e avaliação de conhecimento, garantindo que o Blip 2.0 seja impulsionado por um time certificado e preparado.",
+      "stats": [
+        { "num": "2.0", "label": "Migração da base (KR alvo)" },
+        { "num": "x", "label": "NPS" },
+        { "num": "xh", "label": "de treinamento" },
+        { "num": "x", "label": "Blippers que concluíram a certificação" }
+      ],
+      "links": ["Link do Academy"],
+      "tools": ["Gemini", "Blip Academy"],
+      "relatedTo": [
+        { "id": "proj_pitch_mkt", "reason": "Próximo passo natural após pitch e treinamento síncrono entregues" }
+      ],
+      "timeline": [
+        { "date": "Período Q1", "text": "Trilha criada na Blip Academy." },
+        { "date": "Próximos passos", "text": "Criação de materiais de apoio para envio ao cliente." }
+      ]
+    },
+    {
+      "id": "proj_pitch_studio",
+      "trailId": "t5",
+      "name": "Pitch Blip Studio",
+      "status": "live",
+      "statusLabel": "Done",
+      "period": "Q1",
+      "tags": ["Blip 2.0", "Usado em Capacitação 2.0"],
+      "publico": "Land SMB, Land MACC, Expand SMB, Expand MACC",
+      "contexto": "O treinamento técnico do PMM não estava sendo absorvido pelo time client facing — conteúdo denso demais para conversas comerciais do dia a dia. O enablement identificou esse gap e construiu uma abordagem complementar com foco em negócio, não em produto.",
+      "objetivo": "Adaptar e refinar o pitch do Blip Studio para uma linguagem acessível ao time client facing, acelerando a adoção do Studio em novos clientes e a migração do Blip 1.0 para o 2.0, além de padronizar o discurso do time.",
+      "stats": [
+        { "num": "30%", "label": "Taxa de conversão Whales (KR alvo)" },
+        { "num": "2.0", "label": "Migração da base (KR alvo)" },
+        { "num": "—", "label": "Material de pitch produzido com base em discussões com a Diretoria, validado pelo time" },
+        { "num": "—", "label": "Agendas segmentadas realizadas com Land e Expand" },
+        { "num": "—", "label": "Discurso padronizado e centrado no negócio do cliente" }
+      ],
+      "links": ["[IA] Studio - Pitch", "[IA] Studio - Pitch EXPAND", "Gravação Land", "Gravação Expand"],
+      "tools": [],
+      "relatedTo": [
+        { "id": "proj_analise_vendas", "reason": "Criado após o feedback do treinamento de PMM, identificado na Análise de Vendas (insight Q2)" },
+        { "id": "proj_mockups_wpp", "reason": "Deu origem aos Mockups WPP com Studio" },
+        { "id": "proj_capacitacao20", "reason": "Material utilizado no Programa de Capacitação Blip 2.0" }
+      ],
+      "timeline": [
+        { "date": "Período Q1", "text": "Material de pitch produzido com base em discussões com a Diretoria e validado pelo time. Agendas segmentadas realizadas com Land e Expand, com discurso padronizado e centrado no negócio do cliente." }
+      ]
+    },
+    {
+      "id": "proj_mockups_wpp",
+      "trailId": "t5",
+      "name": "Mockups WhatsApp com Studio",
+      "status": "live",
+      "statusLabel": "Done",
+      "period": "Q1",
+      "tags": ["Blip 2.0"],
+      "publico": "Land SMB, Land MACC, Expand SMB, Expand MACC",
+      "contexto": "Após o Pitch Studio, o time sinalizou que precisava de recursos visuais para tornar as conversas comerciais mais concretas, mostrando ao cliente como o Studio impacta o negócio dele na prática dentro do próprio WhatsApp.",
+      "objetivo": "Criar mockups de conversas de WhatsApp com Studio que ilustrem as funcionalidades do produto impactando cenários reais de negócio, dando ao time client facing uma ferramenta visual poderosa para encantar o lead.",
+      "stats": [
+        { "num": "30%", "label": "Taxa de conversão Whales (KR alvo)" },
+        { "num": "2.0", "label": "Migração da base (KR alvo)" },
+        { "num": "—", "label": "Mockups de conversas WhatsApp com Studio produzidos e disponibilizados" },
+        { "num": "—", "label": "Conteúdo pronto para uso em abordagens comerciais" }
+      ],
+      "links": ["Conheça o conteúdo aqui!"],
+      "tools": ["Claude"],
+      "relatedTo": [
+        { "id": "proj_pitch_studio", "reason": "Gerado a partir do feedback do Pitch Studio" },
+        { "id": "proj_jornadas_wpp", "reason": "Evoluiu para as Jornadas de Sucesso WPP com Studio" }
+      ],
+      "timeline": [
+        { "date": "Período Q1", "text": "Mockups produzidos e disponibilizados para o time." },
+        { "date": "Próximos passos", "text": "Adicionar o material no Claude para aumentar a quantidade de casos de uso." }
+      ]
+    },
+    {
+      "id": "proj_jornadas_wpp",
+      "trailId": "t5",
+      "name": "Jornadas de Sucesso WhatsApp com Studio",
+      "status": "progress",
+      "statusLabel": "Em andamento",
+      "period": "Q2",
+      "tags": ["Blip 2.0"],
+      "publico": "Land SMB, Land MACC, Expand SMB, Expand MACC",
+      "contexto": "Durante a capacitação do Blip 2.0, o time sinalizou que precisava de cases para tornar as conversas comerciais mais encantadoras — mostrando ao cliente como o Studio impacta o negócio dele na prática, dentro do próprio WhatsApp.",
+      "objetivo": "Criar as Jornadas de Sucesso com mockups de conversas de WhatsApp reais, linkadas a métricas e valores reais de negócio. O material é criado por vertical, sem vincular números a nenhuma marca.",
+      "stats": [
+        { "num": "30%", "label": "Taxa de conversão Whales (KR alvo)" },
+        { "num": "2.0", "label": "Migração da base (KR alvo)" },
+        { "num": "—", "label": "PPT por vertical, com Jornadas de Sucesso do Blip 2.0" },
+        { "num": "—", "label": "Conteúdo pronto para uso em abordagens comerciais" }
+      ],
+      "links": ["Conheça o conteúdo aqui!"],
+      "tools": ["Claude"],
+      "relatedTo": [
+        { "id": "proj_mockups_wpp", "reason": "Evolução natural dos Mockups WPP com Studio" },
+        { "id": "proj_capacitacao20", "reason": "Criado após feedback do treinamento de Capacitação do Blip 2.0 para MAcc" }
+      ],
+      "timeline": [
+        { "date": "Período Q2", "text": "Projeto em andamento, criado após feedback do treinamento de Capacitação do Blip 2.0 para MAcc." }
+      ]
+    },
+    {
+      "id": "proj_faq_studio",
+      "trailId": "t5",
+      "name": "FAQ Studio",
+      "status": "live",
+      "statusLabel": "Done",
+      "period": "Q1",
+      "tags": ["Blip 2.0"],
+      "publico": "Land SMB, Land MACC, Expand SMB, Expand MACC",
+      "contexto": "Com o pitch e os mockups entregues, o time sinalizou a necessidade de um repositório de consulta rápida — um lugar para buscar respostas sobre o Studio durante ou antes de uma conversa com o cliente, sem precisar recorrer ao time técnico.",
+      "objetivo": "Criar um FAQ do Studio atualizado e focado em aprimorar o pitch comercial — não para tirar dúvidas técnicas, mas para equipar o vendedor com respostas claras e confiantes para as principais objeções e dúvidas dos clientes.",
+      "stats": [
+        { "num": "30%", "label": "Taxa de conversão Whales (KR alvo)" },
+        { "num": "2.0", "label": "Migração da base (KR alvo)" },
+        { "num": "—", "label": "FAQ do Studio produzido e disponibilizado como repositório de consulta" },
+        { "num": "—", "label": "Conteúdo alinhado com o posicionamento do Blip 2.0" }
+      ],
+      "links": ["FAQ transformada em Notebook LLM"],
+      "tools": [],
+      "relatedTo": [
+        { "id": "proj_pitch_studio", "reason": "Criado após o feedback do treinamento de Pitch do Studio" }
+      ],
+      "timeline": [
+        { "date": "Período Q1", "text": "FAQ produzida e transformada em Notebook LLM para uma interação mais friendly do Blipper." }
+      ]
+    },
+    {
+      "id": "proj_estrategia_cred",
+      "trailId": "t5",
+      "name": "Estratégia de Prospecção para Blip Cred",
+      "status": "progress",
+      "statusLabel": "Em andamento",
+      "period": "Q1",
+      "tags": [],
+      "publico": "Land SMB (piloto)",
+      "contexto": "O GTM de Blip Cred será feito em formato de ondas, para conseguir tracionar o feedback em looping do processo e do produto e obter maior assertividade da estratégia.",
+      "objetivo": "Validar o modelo de prospecção do Blip Cred em ondas sucessivas, aprendendo com o feedback de cada etapa antes de escalar.",
+      "stats": [
+        { "num": "1ª Onda", "label": "Em execução" },
+        { "num": "2ª/3ª Onda", "label": "Em construção a partir do feedback anterior" }
+      ],
+      "links": [],
+      "tools": [],
+      "relatedTo": [
+        { "id": "proj_capacitacao_cred", "reason": "1ª onda gerou a Capacitação Blip Cred para o piloto" }
+      ],
+      "timeline": [
+        { "date": "1ª Onda", "text": "Com as listas de empresas ICP no território de Land SMB, foram selecionadas duas pessoas para tocar o projeto. O primeiro treinamento de produto foi feito apenas com essas pessoas, já que o objetivo nesta etapa é que o próprio time de solutions conduza as agendas." },
+        { "date": "2ª e 3ª Ondas", "text": "Em construção a partir do feedback das ondas anteriores." }
+      ]
+    },
+    {
+      "id": "proj_capacitacao_cred",
+      "trailId": "t5",
+      "name": "Capacitação Blip Cred",
+      "status": "live",
+      "statusLabel": "Done",
+      "period": "Q1",
+      "tags": [],
+      "publico": "Land SMB — 2 pessoas selecionadas para o piloto",
+      "contexto": "Com o lançamento do Blip Cred, o PMM liberou uma lista de empresas com alto fit para o produto. Para não desperdiçar o esforço de prospecção, o enablement estruturou uma estratégia em ondas, começando com um piloto de duas pessoas do time de Land SMB.",
+      "objetivo": "Capacitar o time prioritário com profundidade suficiente para conduzir as próprias agendas de prospecção do Blip Cred, validando o modelo antes de escalar.",
+      "stats": [
+        { "num": "30%", "label": "Taxa de conversão Whales (KR alvo)" },
+        { "num": "8", "label": "Oportunidades geradas" },
+        { "num": "x", "label": "Vendas geradas" }
+      ],
+      "links": ["[Blip Cred] Target List EXPAND 2026", "[Enablement] Blip Cred: A Revolução do Consignado - Recording"],
+      "tools": [],
+      "relatedTo": [
+        { "id": "proj_estrategia_cred", "reason": "Piloto da 1ª onda da estratégia de prospecção" },
+        { "id": "proj_certif_cred", "reason": "Modelo validado deu origem à certificação escalável" }
+      ],
+      "timeline": [
+        { "date": "Período Q1", "text": "Treinamento conduzido junto ao PMM, garantindo alinhamento técnico e comercial." },
+        { "date": "Próximos passos", "text": "Segunda e terceira ondas a iniciar — datas a definir com base no feedback da primeira." }
+      ]
+    },
+    {
+      "id": "proj_certif_cred",
+      "trailId": "t5",
+      "name": "Certificação Blip Cred",
+      "status": "live",
+      "statusLabel": "Done",
+      "period": "Q2",
+      "tags": [],
+      "publico": "Land SMB, Land MACC, Land STACC, Expand SMB, Expand MACC, Expand STACC",
+      "contexto": "Com o piloto validado e o modelo comprovado (2 pessoas, 8 oportunidades), o próximo passo era criar uma estrutura escalável para capacitar os times das próximas ondas sem depender de agendas síncronas para cada grupo.",
+      "objetivo": "Escalar o conhecimento do Blip Cred via Blip Academy, com trilha de treinamento dinâmica e certificação, garantindo que cada nova onda chegue preparada para prospectar com qualidade.",
+      "stats": [
+        { "num": "30%", "label": "Taxa de conversão Whales (KR alvo)" },
+        { "num": "—", "label": "Trilha de certificação Blip Cred criada na Blip Academy" },
+        { "num": "x", "label": "participações (a preencher conforme adesão das próximas ondas)" }
+      ],
+      "links": ["academy.blip.ai/course/blip-cred-blippers"],
+      "tools": ["Claude", "Blip Academy"],
+      "relatedTo": [
+        { "id": "proj_capacitacao_cred", "reason": "Escala o modelo validado no piloto" }
+      ],
+      "timeline": [
+        { "date": "Período Q2", "text": "Trilha de certificação criada na Blip Academy." }
+      ]
+    },
+    {
+      "id": "proj_whatsapp_api",
+      "trailId": "t5",
+      "name": "WhatsApp API — Capacitação com o time Meta",
+      "status": "live",
+      "statusLabel": "Done",
+      "period": "Q1",
+      "tags": ["Blip 2.0"],
+      "publico": "Land (todas as BUs), Expand (todas as BUs), CSM (todas as BUs), ISM SMB e Parceiros",
+      "contexto": "A análise de calls de Q1 revelou que mais de 80% das vendas fechadas em janeiro estavam ligadas a clientes com dor na saúde do número de WhatsApp. Em paralelo, as crescentes mudanças nas políticas e algoritmos da Meta vinham gerando confusão no time — tanto no discurso com leads quanto no suporte a clientes.",
+      "objetivo": "Nivelar o conhecimento de toda a operação sobre WhatsApp API, reclassificação e boas práticas, equipando o time com discurso preciso e confiante sobre um dos principais gatilhos de compra identificados em 2026.",
+      "stats": [
+        { "num": "30%", "label": "Taxa de conversão Whales (KR alvo)" },
+        { "num": "—", "label": "Repertório (impacto qualitativo)" }
+      ],
+      "links": ["[Treinamento] WhatsApp API: Recategorização de templates - Recording"],
+      "tools": [],
+      "relatedTo": [
+        { "id": "proj_analise_vendas", "reason": "Gerado a partir do insight Q1 da Análise de Vendas (sistema de inteligência de vendas do enablement)" }
+      ],
+      "timeline": [
+        { "date": "04 Mar 2026", "text": "Treinamento orquestrado pelo enablement em parceria com Ecosystem e Alianças. Capacitação conduzida diretamente pelo time da Meta, garantindo informação de fonte primária." },
+        { "date": "Mar 2026", "text": "Criada a página de Canais na Central de Enablement; documentação do conteúdo registrada no Notion para consulta contínua." }
+      ]
+    },
+    {
+      "id": "proj_historias_sucesso",
+      "trailId": "t6",
+      "name": "Trilha Histórias de Sucesso SMB",
+      "status": "progress",
+      "statusLabel": "Em andamento — recorrente",
+      "period": "Anual",
+      "tags": [],
+      "publico": "Land SMB, Expand SMB e Parceiros Blip",
+      "contexto": "O time de vendas aprende muito mais com cases reais do que com teoria. Histórias de sucesso contadas pelos próprios protagonistas criam repertório, inspiram abordagens e mostram na prática como a sinergia entre diferentes papéis — Land, Expand e Parceiros — gera resultado.",
+      "objetivo": "Criar uma recorrência mensal de compartilhamento de casos de sucesso em formato híbrido de debate e entrevista, ampliando o repertório do time, fortalecendo o discurso de vendas e evidenciando boas práticas replicáveis.",
+      "stats": [
+        { "num": "20%", "label": "Crescimento SMB (KR alvo)" },
+        { "num": "3", "label": "agendas a realizar ao longo do ano" },
+        { "num": "3h", "label": "de treinamento entregues" },
+        { "num": "2", "label": "materiais personalizados produzidos" },
+        { "num": "30%", "label": "taxa de conversão Whales (KR alvo)" }
+      ],
+      "links": ["Trilha de Conhecimento", "[Entrevista] Negociação de Sucesso: Info Tecnologia - Recording", "[Entrevista] Histórias de Sucesso: Evorá - Recording", "[Entrevista] Histórias de Sucesso: Clube Atlético Mineiro - Recording", "[Entrevista] Histórias de Sucesso: MetroCasa - Recording"],
+      "tools": [],
+      "relatedTo": [
+        { "id": "proj_capacitacao20", "reason": "Próximo passo: criação da agenda Histórias de Sucesso para MAcc dentro do Programa de Capacitação Blip 2.0" }
+      ],
+      "timeline": [
+        { "date": "Jan 2026", "text": "Início da recorrência — 1 agenda por mês." },
+        { "date": "Em andamento", "text": "2 materiais personalizados produzidos até o momento; 3h de treinamento entregues." }
+      ]
+    },
+    {
+      "id": "proj_apoio_vendas_calls",
+      "trailId": "t6",
+      "name": "Apoio em Vendas — Análise de Insights Recorrente",
+      "status": "progress",
+      "statusLabel": "Em andamento — recorrente",
+      "period": "Anual",
+      "tags": ["Blip 2.0"],
+      "publico": "Coordenações e Gerências de Land e Expand (todas as BUs)",
+      "contexto": "Os insights extraídos da escuta de calls e da participação direta em vendas alimentam continuamente o ciclo de inteligência → ação → material → escala do enablement, sendo a base para a maioria dos projetos de Sales Messaging e Product Knowledge.",
+      "objetivo": "Manter um ciclo recorrente de escuta ativa do campo, garantindo que os principais gaps de discurso e produto sejam identificados e transformados em ação rapidamente.",
+      "stats": [
+        { "num": "57", "label": "calls assistidas até o momento" },
+        { "num": "2", "label": "insights principais gerados em 2026 (Q1 e Q2)" }
+      ],
+      "links": [],
+      "tools": [],
+      "relatedTo": [
+        { "id": "proj_analise_vendas", "reason": "Parte do mesmo sistema de inteligência de vendas" },
+        { "id": "proj_whatsapp_api", "reason": "Insight Q1 originou este projeto" },
+        { "id": "proj_pitch_studio", "reason": "Insight Q2 originou este projeto" }
+      ],
+      "timeline": [
+        { "date": "Anual", "text": "Atividade recorrente, alimentando os insights trimestrais da Análise de Vendas." }
+      ]
+    }
+  ]
+}

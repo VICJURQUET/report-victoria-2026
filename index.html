@@ -612,12 +612,38 @@ function getTrail(id) { return DATA.trails.find(t => t.id === id); }
 // (trilha em coluna à esquerda, projetos em grid à direita)
 // ============================================
 function computeLayout() {
-const trailX = 40;
-const trailGapY = 420;
-const projStartX = 320;
 const projColWidth = 230;
 const projColGap = 30;
 const projRowHeight = 160;
+
+if (activeFilters.trail !== 'all') {
+// FOCUSED LAYOUT: single trail, projects in a wider grid
+const trail = getTrail(activeFilters.trail);
+const projCols = 4;
+const trailX = 40;
+const projStartX = 320;
+
+trail.x = trailX;
+trail.y = 40;
+
+trail.projects.forEach((pid, pi) => {
+const project = getProject(pid);
+const col = pi % projCols;
+const row = Math.floor(pi / projCols);
+project.x = projStartX + col * (projColWidth + projColGap);
+project.y = trail.y - 20 + row * projRowHeight;
+});
+
+const rows = Math.ceil(trail.projects.length / projCols);
+const totalHeight = trail.y + Math.max(420, rows * projRowHeight + 200);
+mapWrap.style.minHeight = totalHeight + 'px';
+return;
+}
+
+// DEFAULT LAYOUT: all trails stacked, each with its own project grid
+const trailX = 40;
+const trailGapY = 420;
+const projStartX = 320;
 const projCols = 3;
 
 DATA.trails.forEach((trail, ti) => {
@@ -685,6 +711,8 @@ function renderMap() {
 mapWrap.querySelectorAll('.node').forEach(n => n.remove());
 
 DATA.trails.forEach(trail => {
+if (activeFilters.trail !== 'all' && activeFilters.trail !== trail.id) return;
+
 const el = document.createElement('div');
 el.className = 'node trail';
 el.style.left = trail.x + 'px';
@@ -693,9 +721,7 @@ el.tabIndex = 0;
 el.dataset.connKey = 'trail_' + trail.id;
 
 const visibleProjects = trail.projects.filter(pid => matchesFilters(getProject(pid)));
-if (activeFilters.trail !== 'all' && activeFilters.trail !== trail.id) {
-el.classList.add('dimmed');
-} else if (visibleProjects.length === 0 && (activeFilters.status !== 'all' || activeFilters.period !== 'all')) {
+if (visibleProjects.length === 0 && (activeFilters.status !== 'all' || activeFilters.period !== 'all')) {
 el.classList.add('dimmed');
 }
 
@@ -712,6 +738,8 @@ mapWrap.appendChild(el);
 });
 
 DATA.projects.forEach(project => {
+if (activeFilters.trail !== 'all' && project.trailId !== activeFilters.trail) return;
+
 const el = document.createElement('div');
 el.className = 'node project';
 el.style.left = project.x + 'px';
@@ -766,10 +794,8 @@ return { x: r.left - wrapRect.left + r.width / 2, y: r.top - wrapRect.top + r.he
 
 const allNodes = document.querySelectorAll('.node');
 const nodeMap = {};
-let tIdx = 0, pIdx = 0;
 allNodes.forEach(n => {
-if (n.classList.contains('trail')) { nodeMap['trail_' + DATA.trails[tIdx].id] = n; tIdx++; }
-else { nodeMap['proj_' + DATA.projects[pIdx].id] = n; pIdx++; }
+nodeMap[n.dataset.connKey] = n;
 });
 
 // trail -> project (structural)
@@ -1013,6 +1039,7 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal()
 // ============================================
 function render() {
 buildFilters();
+computeLayout();
 renderMap();
 renderMobile();
 }

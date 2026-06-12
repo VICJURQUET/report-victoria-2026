@@ -26,7 +26,7 @@ body {
 font-family: 'Lexend', sans-serif;
 background: #FFFFFF;
 color: #000;
-overflow-x: hidden;
+overflow-x: auto;
 }
 
 /* HEADER */
@@ -626,15 +626,9 @@ function getTrail(id) { return DATA.trails.find(t => t.id === id); }
 // ============================================
 function computeLayout() {
 if (activeFilters.trail !== 'all') {
-// FOCUSED LAYOUT: trail in corner, projects scattered in a "cloud" to the right
+// FOCUSED LAYOUT: trail centered, projects scattered in a full "cloud" around it
 const trail = getTrail(activeFilters.trail);
-const trailX = 40;
-const trailY = 60;
-trail.x = trailX;
-trail.y = trailY;
-
-const cloudCenterX = 620;
-const cloudCenterY = trailY + 140;
+const trailW = 220, trailH = 100;
 const projW = 195, projH = 96;
 
 // pseudo-random but deterministic per project id, so layout is stable across re-renders
@@ -645,34 +639,60 @@ return h;
 }
 
 const n = trail.projects.length;
+const perRing = 8;
+const rings = Math.ceil(n / perRing);
+
+// estimate canvas size based on number of rings needed
+const maxRadius = 320 + (rings - 1) * 300;
+const canvasSize = (maxRadius + 280) * 2;
+const centerX = canvasSize / 2;
+const centerY = canvasSize / 2;
+
+trail.x = centerX - trailW / 2;
+trail.y = centerY - trailH / 2;
+
 trail.projects.forEach((pid, pi) => {
 const project = getProject(pid);
 const seed = seedFor(pid);
 
-// distribute around a circle, with radius growing for outer "rings"
-const ring = Math.floor(pi / 6);
-const idxInRing = pi % 6;
-const ringCount = Math.min(6, n - ring * 6);
-const angle = (idxInRing / Math.max(1, ringCount)) * Math.PI * 2 + (ring * 0.5);
-const baseRadius = 280 + ring * 320;
+const ring = Math.floor(pi / perRing);
+const idxInRing = pi % perRing;
+const ringCount = Math.min(perRing, n - ring * perRing);
+const angleOffset = (ring % 2 === 0) ? 0 : (Math.PI / ringCount);
+const angle = (idxInRing / ringCount) * Math.PI * 2 + angleOffset + (ring * 0.3);
+const baseRadius = 300 + ring * 290;
 
 // jitter based on seed, deterministic
-const jitterX = ((seed % 100) / 100 - 0.5) * 140;
-const jitterY = (((seed >> 8) % 100) / 100 - 0.5) * 140;
-const radiusJitter = ((seed >> 16) % 100) / 100 * 80;
+const jitterX = ((seed % 100) / 100 - 0.5) * 90;
+const jitterY = (((seed >> 8) % 100) / 100 - 0.5) * 90;
+const radiusJitter = ((seed >> 16) % 100) / 100 * 60;
 
 const radius = baseRadius + radiusJitter;
-project.x = Math.max(280, cloudCenterX + Math.cos(angle) * radius * 1.3 + jitterX - projW / 2);
-project.y = Math.max(0, cloudCenterY + Math.sin(angle) * radius * 0.7 + jitterY - projH / 2);
+project.x = centerX + Math.cos(angle) * radius + jitterX - projW / 2;
+project.y = centerY + Math.sin(angle) * radius + jitterY - projH / 2;
 });
 
-// adjust map height/width based on the furthest project
-let maxY = trailY + 400;
+// adjust map size to fit the cloud, with margins
+let minX = trail.x, maxX = trail.x + trailW, minY = trail.y, maxY = trail.y + trailH;
 trail.projects.forEach(pid => {
 const project = getProject(pid);
-maxY = Math.max(maxY, project.y + projH + 120);
+minX = Math.min(minX, project.x);
+maxX = Math.max(maxX, project.x + projW);
+minY = Math.min(minY, project.y);
+maxY = Math.max(maxY, project.y + projH);
 });
-mapWrap.style.minHeight = maxY + 'px';
+
+const margin = 60;
+const shiftX = margin - minX;
+const shiftY = margin - minY;
+trail.x += shiftX; trail.y += shiftY;
+trail.projects.forEach(pid => {
+const project = getProject(pid);
+project.x += shiftX; project.y += shiftY;
+});
+
+mapWrap.style.minHeight = (maxY - minY + margin * 2) + 'px';
+mapWrap.style.minWidth = (maxX - minX + margin * 2) + 'px';
 return;
 }
 
@@ -695,6 +715,7 @@ trail.y = startY + row * (cardH + gapY);
 const rows = Math.ceil(DATA.trails.length / cols);
 const totalHeight = startY + rows * (cardH + gapY) + 100;
 mapWrap.style.minHeight = totalHeight + 'px';
+mapWrap.style.minWidth = '';
 }
 
 // ============================================
